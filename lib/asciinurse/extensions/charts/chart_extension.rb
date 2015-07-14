@@ -15,22 +15,20 @@ module Asciinurse
         id = '%s_%s' % [attrs['title'].gsub(/\W/, '_').downcase, rand(10000)]
 
         data = parent.read_asset(data_path, warn_on_failure: true, normalize: true)
-        unless data.nil? || data.empty?
-          if backend == 'pdf'
-            raise 'Sorry!'
-          elsif backend == 'html5'
-            result = create_html_content id, data
-            create_pass_block parent, result, attrs, subs: nil
-          end
+        if backend == 'pdf'
+          raise 'Sorry!'
+        elsif backend == 'html5'
+          result = create_html_content id, data
+          create_pass_block parent, result, attrs, subs: nil
         end
       end
 
       def create_html_content(id, data)
-        html_div = %(<div id='#{id}'>)
-        %(#{html_div}
+        %(
+        <div id='#{id}'>
         <script type="text/javascript">
           $(function () {
-              $('#container').highcharts(#{data});
+              $('#{id}').highcharts(#{data});
           });
         </script>
         )
@@ -41,21 +39,23 @@ module Asciinurse
       use_dsl
       at_location :header
 
-      SCRIPTS = %w{highcharts.min.js jquery.min.js}
+      SCRIPTS = %w{jquery.min.js highcharts.min.js}
 
       def process(doc)
         if doc.attributes['backend'] == 'html5'
           (SCRIPTS.collect do |script|
-            %(<script type="text/javascript">
-            #{read_resource script}
-          </script>)
+            %(
+              <script type="text/javascript">
+                #{read_resource script}
+              </script>
+            )
           end).join $/
         end
       end
 
       def read_resource(resource_name)
         basedir = File.dirname __FILE__
-        IO.read('%s/%s' % [basedir, resource_name])
+        IO.read('%s/resources/%s' % [basedir, resource_name])
       end
 
     end

@@ -12,7 +12,8 @@ module Asciinurse
         document = parent.document
         data_path = parent.normalize_asset_path(target, 'target')
         backend = document.attributes['backend']
-        id = '%s_%s' % [attrs['title'].gsub(/\W/, '_').downcase, rand(10000)]
+        document.attributes['last-id'] ||= 0
+        id = 'chart_%s' % (document.attributes['last-id'] += 1)
 
         data = parent.read_asset(data_path, warn_on_failure: true, normalize: true)
         if backend == 'pdf'

@@ -28,7 +28,7 @@ module Asciinurse
         <div id='#{id}'>
         <script type="text/javascript">
           $(function () {
-              $('#{id}').highcharts(#{data});
+              $('##{id}').highcharts(#{data});
           });
         </script>
         )

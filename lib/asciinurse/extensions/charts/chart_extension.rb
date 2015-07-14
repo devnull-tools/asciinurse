@@ -39,7 +39,7 @@ module Asciinurse
       use_dsl
       at_location :header
 
-      SCRIPTS = %w{jquery.min.js highcharts.min.js}
+      SCRIPTS = %w{jquery.min.js highcharts.min.js global.js}
 
       def process(doc)
         if doc.attributes['backend'] == 'html5'

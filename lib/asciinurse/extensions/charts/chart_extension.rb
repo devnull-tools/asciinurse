@@ -32,7 +32,7 @@ module Asciinurse
 
       def create_from_json(id, data)
         %(
-        <div id='#{id}'>
+        <div id='#{id}'></div>
         <script type="text/javascript">
           $(function () {
               $('##{id}').highcharts(#{data});

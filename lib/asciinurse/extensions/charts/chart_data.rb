@@ -1,5 +1,6 @@
 require 'json'
 require 'csv'
+require 'erb'
 
 module Asciinurse
   module Chart

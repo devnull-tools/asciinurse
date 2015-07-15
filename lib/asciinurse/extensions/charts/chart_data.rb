@@ -25,9 +25,9 @@ module Asciinurse
       def get_template(default = 'generic.json.erb')
         basedir = File.dirname __FILE__
         begin
-          IO.read('%s/template/%s.json.erb' % [basedir, @type])
+          IO.read('%s/templates/%s.json.erb' % [basedir, @type])
         rescue
-          IO.read('%s/template/%s' % [basedir, default])
+          IO.read('%s/templates/%s' % [basedir, default])
         end
       end
 

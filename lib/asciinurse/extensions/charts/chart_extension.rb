@@ -1,6 +1,8 @@
 require 'asciidoctor/extensions'
 require 'fileutils'
 
+require_relative 'chart_data'
+
 module Asciinurse
   module Chart
     class ChartBlockMacro < Asciidoctor::Extensions::BlockMacroProcessor
@@ -19,12 +21,16 @@ module Asciinurse
         if backend == 'pdf'
           raise 'Sorry!'
         elsif backend == 'html5'
-          result = create_html_content id, data
+          result = if data_path.end_with? '.csv'
+                     create_from_csv id, data, attrs
+                   else
+                     create_from_json id, data
+                   end
           create_pass_block parent, result, attrs, subs: nil
         end
       end
 
-      def create_html_content(id, data)
+      def create_from_json(id, data)
         %(
         <div id='#{id}'>
         <script type="text/javascript">
@@ -34,6 +40,12 @@ module Asciinurse
         </script>
         )
       end
+
+      def create_from_csv(id, data, attrs)
+        csv_data = CSVData::new attrs, data
+        create_from_json id, csv_data.to_chart_json
+      end
+
     end
 
     class ChartAssetsDocinfoProcessor < Asciidoctor::Extensions::DocinfoProcessor

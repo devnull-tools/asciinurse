@@ -1,0 +1,12 @@
+{
+  chart: {
+    type: '<%= @type %>'
+  },
+  title: {
+    text: '<%= @title %>'
+  },
+  xAxis: {
+    categories: <%= @header.to_s %>
+  },
+  series: <%= @series.to_json %>
+}

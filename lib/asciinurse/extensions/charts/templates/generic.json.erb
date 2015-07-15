@@ -1,9 +1,9 @@
 {
   chart: {
-    type: '<%= @type %>'
+    type: <%= @type.to_json %>
   },
   title: {
-    text: '<%= @title %>'
+    text: <%= @title.to_json %>
   },
   xAxis: {
     categories: <%= @header.to_s %>

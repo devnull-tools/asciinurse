@@ -1,0 +1,53 @@
+= Asciinurse Charts Examples
+
+[NOTE]
+====
+Modify this examples and convert this file using `ruby convert.rb charts.adoc`
+====
+
+== JSON Config File
+
+[source,adoc]
+----
+chart::browsers.json[]
+----
+
+chart::browsers.json[]
+
+== CSV Files
+
+[source,adoc]
+----
+.Browser market shares January, 2015 to May, 2015
+chart::browsers.csv[type=pie]
+----
+
+.Browser market shares January, 2015 to May, 2015
+chart::browsers.csv[type=pie]
+
+[source,adoc]
+----
+.Bar Chart
+chart::indicators.csv[type=bar]
+----
+
+.Bar Chart
+chart::indicators.csv[type=bar]
+
+[source,adoc]
+----
+.Bar Chart
+chart::indicators.csv[type=column]
+----
+
+.Column Chart
+chart::indicators.csv[type=column]
+
+[source,adoc]
+----
+.Bar Chart
+chart::indicators.csv[type=line]
+----
+
+.Line Chart
+chart::indicators.csv[type=line]

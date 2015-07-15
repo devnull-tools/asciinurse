@@ -8,3 +8,5 @@
 /spec/reports/
 /tmp/
 .idea/workspace.xml
+/examples/*.html
+/examples/*.pdf

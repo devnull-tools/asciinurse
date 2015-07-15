@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Ataxexe']
   spec.email         = ['ataxexe@devnull.tools']
 
-  spec.summary       = 'The best assistant to Asciidoctor'
+  spec.summary       = "The best Asciidoctor's assistant"
   spec.homepage      = 'http://devnull.tools'
   spec.license       = 'MIT'
 
@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'asciidoctor', '~> 1.5'
   spec.add_dependency 'asciidoctor-pdf', '~> 1.5.0.alpha.7'
-  spec.add_dependency 'i18n', '~> 0.7.0'
 
   spec.add_development_dependency 'bundler', '~> 1.8'
   spec.add_development_dependency 'rake', '~> 10.0'

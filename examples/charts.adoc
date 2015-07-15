@@ -51,3 +51,20 @@ chart::indicators.csv[type=line]
 
 .Line Chart
 chart::indicators.csv[type=line]
+
+== CSV Inline
+
+[source,adoc]
+----
+[chart,pie]
+....
+$ID, Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
+Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+....
+----
+
+[chart,pie]
+....
+$ID, Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
+Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+....

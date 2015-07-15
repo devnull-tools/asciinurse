@@ -1001,10 +1001,94 @@ chart::indicators.csv[type=line]</code></pre>
         </script>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_csv_inline">CSV Inline</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">[chart,pie]
+....
+$ID, Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
+Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+....</code></pre>
+</div>
+</div>
+        <div id='chart_6'></div>
+        <script type="text/javascript">
+          $(function () {
+              $('#chart_6').highcharts({
+  chart: {
+    type: 'pie'
+  },
+  title: {
+    text: null
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        }
+      }
+    }
+  },
+  series: [
+
+    {
+    name: "Brands",
+    colorByPoint: true,
+    data: [
+
+      {
+        name: " Internet Explorer",
+        y: 56.33
+      },
+
+      {
+        name: " Chrome",
+        y: 24.03
+      },
+
+      {
+        name: " Firefox",
+        y: 10.38
+      },
+
+      {
+        name: " Safari",
+        y: 4.77
+      },
+
+      {
+        name: " Opera",
+        y: 0.91
+      },
+
+      {
+        name: " Unknown",
+        y: 0.2
+      },
+
+    ]
+    },
+
+  ]
+});
+          });
+        </script>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-15 16:52:29 BRT
+Last updated 2015-07-15 18:15:40 BRT
 </div>
 </div>
 </body>

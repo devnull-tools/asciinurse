@@ -3,7 +3,7 @@
     type: 'pie'
   },
   title: {
-    text: <%= @title %>
+    text: <%= @title.to_json %>
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -21,9 +21,20 @@
       }
     }
   },
-  series: [{
-    name: <%= @name %>,
+  series: [
+    <% @series.each do |series| %>
+    {
+    name: <%= series[:name].to_json %>,
     colorByPoint: true,
-    data: []
-  }]
+    data: [
+      <% series[:data].each_with_index do |data, i| %>
+      {
+        name: <%= @header[i].to_json %>,
+        y: <%= data %>
+      },
+      <% end %>
+    ]
+    },
+    <% end %>
+  ]
 }

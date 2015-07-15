@@ -22,12 +22,9 @@ module Asciinurse
       private
 
       def get_template(default = 'generic.json.erb')
-        basedir = File.dirname __FILE__
-        begin
-          IO.read('%s/templates/%s.json.erb' % [basedir, @type])
-        rescue
-          IO.read('%s/templates/%s' % [basedir, default])
-        end
+        template = Asciinurse.find_resource :template, :chart, "#{@type}.json.erb"
+        template ||= Asciinurse.find_resource :template, :chart, default
+        IO.read template
       end
 
       def parse_data

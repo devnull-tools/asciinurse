@@ -59,16 +59,11 @@ module Asciinurse
           (SCRIPTS.collect do |script|
             %(
               <script type="text/javascript">
-                #{read_resource script}
+                #{Asciinurse.read_resource :javascript, script}
               </script>
             )
           end).join $/
         end
-      end
-
-      def read_resource(resource_name)
-        basedir = File.dirname __FILE__
-        IO.read('%s/resources/%s' % [basedir, resource_name])
       end
 
     end

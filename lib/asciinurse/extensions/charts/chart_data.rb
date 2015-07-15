@@ -5,14 +5,13 @@ require 'erb'
 module Asciinurse
   module Chart
 
-    Series = Struct::new :name, :data
-
     class CSVData
       def initialize(attrs, csv_content)
         @title = attrs['title']
         @type = attrs['type']
         @csv = CSV.parse(csv_content, :converters => :all)
         @has_id = @csv.first.first == '$ID'
+        @header = @has_id ? @csv.first[1..-1] : @csv.first
         parse_data
       end
 
@@ -32,11 +31,16 @@ module Asciinurse
       end
 
       def parse_data
-        @series = @csv.collect do |row|
+        @series = @csv[1..-1].collect do |row|
           if @has_id
-            Series::new row.first, row[1..-1]
+            {
+                name: row.first,
+                data: row[1..-1]
+            }
           else
-            Series::new nil, row
+            {
+                data: row
+            }
           end
         end
       end

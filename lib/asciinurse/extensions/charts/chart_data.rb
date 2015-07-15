@@ -6,7 +6,8 @@ module Asciinurse
   module Chart
 
     class CSVData
-      def initialize(attrs, csv_content)
+      def initialize(engine, attrs, csv_content)
+        @engine = engine
         @title = attrs['title']
         @type = attrs['type']
         @csv = CSV.parse(csv_content, :converters => :all)
@@ -22,8 +23,8 @@ module Asciinurse
       private
 
       def get_template(default = 'generic.json.erb')
-        template = Asciinurse.find_resource :template, :chart, "#{@type}.json.erb"
-        template ||= Asciinurse.find_resource :template, :chart, default
+        template = Asciinurse.find_resource @engine, :templates, "#{@type}.json.erb"
+        template ||= Asciinurse.find_resource @engine, :templates, default
         IO.read template
       end
 

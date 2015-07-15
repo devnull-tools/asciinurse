@@ -1,8 +1,6 @@
 require 'asciidoctor/extensions'
 require 'fileutils'
 
-require_relative 'chart_data'
-
 module Asciinurse
   module Chart
     class ChartBlockMacro < Asciidoctor::Extensions::BlockMacroProcessor
@@ -42,7 +40,7 @@ module Asciinurse
       end
 
       def create_from_csv(id, data, attrs)
-        csv_data = CSVData::new attrs, data
+        csv_data = CSVData::new :highcharts, attrs, data
         create_from_json id, csv_data.to_chart_json
       end
 
@@ -59,7 +57,7 @@ module Asciinurse
           (SCRIPTS.collect do |script|
             %(
               <script type="text/javascript">
-                #{Asciinurse.read_resource :javascript, script}
+                #{Asciinurse.read_resource :highcharts, :javascripts, script}
               </script>
             )
           end).join $/

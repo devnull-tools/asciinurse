@@ -42,11 +42,11 @@ module Asciinurse
 
       def create_image(document, config, attrs)
         converter = Asciinurse.find_resource :highcharts, :phantomjs, 'highcharts-convert.js'
-        basedir = document.attributes['docdir']
+        tmpdir = Asciinurse.tmp_dir document
         id = (document.attributes['last-id'] += 1)
 
-        config_file = '%s/tmp/config-%d.json' % [basedir, id]
-        image_file = '%s/tmp/chart-%d.png' % [basedir, id]
+        config_file = "#{tmpdir}/config-#{id}.json"
+        image_file = "#{tmpdir}/chart-#{id}.png"
 
         IO.write config_file, config
 

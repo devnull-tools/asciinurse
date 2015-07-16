@@ -1,5 +1,7 @@
 require 'asciidoctor'
 require 'yaml'
+require 'fileutils'
+require 'set'
 
 require_relative 'asciinurse/version'
 
@@ -42,6 +44,22 @@ module Asciinurse
   # reverse order so custom config can take precedence over built-in config
   find(:config, 'asciinurse.yml').reverse_each do |file|
     CONFIG.merge! YAML::load_file(file)
+  end
+
+  TEMP_DIRS = Set::new
+
+  def self.tmp_dir(document)
+    basedir = document.attributes['docdir']
+    tmpdir = "#{basedir}/tmp"
+    FileUtils.mkpath tmpdir unless File.exist? tmpdir
+    TEMP_DIRS << tmpdir
+    tmpdir
+  end
+
+  at_exit do
+    TEMP_DIRS.each do |tmpdir|
+      FileUtils.rmtree tmpdir
+    end
   end
 
 end

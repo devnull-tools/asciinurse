@@ -793,57 +793,69 @@ Highcharts.setOptions({
         <script type="text/javascript">
           $(function () {
               $('#chart_1').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
+  credits: {
+    enabled: false
+  },
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
+  },
+  title: {
+    text: 'Browser market shares January, 2015 to May, 2015'
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        }
+      }
+    }
+  },
+  series: [
+    {
+      name: "Brands",
+      colorByPoint: true,
+      data: [
+        {
+          name: "Microsoft Internet Explorer",
+          y: 56.33
         },
-        title: {
-            text: 'Browser market shares January, 2015 to May, 2015'
+        {
+          name: "Chrome",
+          y: 24.03,
+          sliced: true,
+          selected: true
         },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        {
+          name: "Firefox",
+          y: 10.38
         },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
-            }
+        {
+          name: "Safari",
+          y: 4.77
         },
-        series: [{
-            name: "Brands",
-            colorByPoint: true,
-            data: [{
-                name: "Microsoft Internet Explorer",
-                y: 56.33
-            }, {
-                name: "Chrome",
-                y: 24.03,
-                sliced: true,
-                selected: true
-            }, {
-                name: "Firefox",
-                y: 10.38
-            }, {
-                name: "Safari",
-                y: 4.77
-            }, {
-                name: "Opera",
-                y: 0.91
-            }, {
-                name: "Proprietary or Undetectable",
-                y: 0.2
-            }]
-        }]
-    });
+        {
+          name: "Opera",
+          y: 0.91
+        },
+        {
+          name: "Proprietary or Undetectable",
+          y: 0.2
+        }
+      ]
+    }
+  ]
+});
           });
         </script>
 </div>
@@ -861,6 +873,9 @@ chart::browsers.csv[type=pie]</code></pre>
         <script type="text/javascript">
           $(function () {
               $('#chart_2').highcharts({
+  credits: {
+    enabled: false
+  },
   chart: {
     type: 'pie'
   },
@@ -937,6 +952,9 @@ chart::indicators.csv[type=bar]</code></pre>
         <script type="text/javascript">
           $(function () {
               $('#chart_3').highcharts({
+  credits: {
+    enabled: false
+  },
   chart: {
     type: "bar"
   },
@@ -961,6 +979,9 @@ chart::indicators.csv[type=column]</code></pre>
         <script type="text/javascript">
           $(function () {
               $('#chart_4').highcharts({
+  credits: {
+    enabled: false
+  },
   chart: {
     type: "column"
   },
@@ -985,6 +1006,9 @@ chart::indicators.csv[type=line]</code></pre>
         <script type="text/javascript">
           $(function () {
               $('#chart_5').highcharts({
+  credits: {
+    enabled: false
+  },
   chart: {
     type: "line"
   },
@@ -1017,6 +1041,9 @@ Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
         <script type="text/javascript">
           $(function () {
               $('#chart_6').highcharts({
+  credits: {
+    enabled: false
+  },
   chart: {
     type: 'pie'
   },
@@ -1096,6 +1123,9 @@ Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
         <script type="text/javascript">
           $(function () {
               $('#chart_7').highcharts({
+  credits: {
+    enabled: false
+  },
   chart: {
     type: 'pie'
   },

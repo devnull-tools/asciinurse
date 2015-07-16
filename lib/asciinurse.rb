@@ -12,6 +12,10 @@ module Asciinurse
       File.expand_path(File.dirname(__FILE__) + '/..')
   ]
 
+  def self.add_custom_path(path)
+    RESOURCE_PRECEDENCE.insert 1, path
+  end
+
   def self.find(*path)
     result = []
     RESOURCE_PRECEDENCE.each do |basedir|

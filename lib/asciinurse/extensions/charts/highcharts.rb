@@ -1,5 +1,6 @@
 require 'asciidoctor/extensions'
 require 'fileutils'
+require 'tempfile'
 
 module Asciinurse
   module Chart
@@ -8,17 +9,21 @@ module Asciinurse
 
       def create_chart(parent, attrs, config)
         document = parent.document
+        document.attributes['last-id'] ||= 0
         backend = document.attributes['backend']
         if backend == 'html5'
-          result = create_from_json document, config
-          create_pass_block parent, result, attrs, subs: nil
+          html = create_from_json document, config
+          create_pass_block parent, html, attrs, subs: nil
         else
-          # TODO: create image from chart
+          attrs['target'] = create_image document, config, attrs
+          attrs['width'] ||= 480
+          attrs['height'] ||= 250
+
+          create_image_block parent, attrs
         end
       end
 
       def create_from_json(document, config)
-        document.attributes['last-id'] ||= 0
         id = 'chart_%s' % (document.attributes['last-id'] += 1)
         %(
         <div id='#{id}'></div>
@@ -34,6 +39,21 @@ module Asciinurse
         csv_data = CSVData::new :highcharts, attrs, data
         csv_data.to_chart_json
       end
+
+      def create_image(document, config, attrs)
+        converter = Asciinurse.find_resource :highcharts, :phantomjs, 'highcharts-convert.js'
+        basedir = document.attributes['docdir']
+        id = (document.attributes['last-id'] += 1)
+
+        config_file = '%s/tmp/config-%d.json' % [basedir, id]
+        image_file = '%s/tmp/chart-%d.png' % [basedir, id]
+
+        IO.write config_file, config
+
+        `phantomjs #{converter} -infile #{config_file} -outfile #{image_file} -scale 2.5`
+        image_file
+      end
+
     end
 
     class ChartBlockMacro < Asciidoctor::Extensions::BlockMacroProcessor

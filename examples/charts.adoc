@@ -68,3 +68,18 @@ Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
 $ID, Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
 Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
 ....
+
+[source,adoc]
+----
+[chart,pie]
+....
+Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
+56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+....
+----
+
+[chart,pie]
+....
+Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
+56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+....

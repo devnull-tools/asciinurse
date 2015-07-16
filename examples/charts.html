@@ -1083,12 +1083,91 @@ Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
 });
           });
         </script>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">[chart,pie]
+....
+Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
+56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+....</code></pre>
+</div>
+</div>
+        <div id='chart_7'></div>
+        <script type="text/javascript">
+          $(function () {
+              $('#chart_7').highcharts({
+  chart: {
+    type: 'pie'
+  },
+  title: {
+    text: null
+  },
+  tooltip: {
+    pointFormat: '<b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        }
+      }
+    }
+  },
+  series: [
+
+    {
+    name: null,
+    colorByPoint: true,
+    data: [
+
+      {
+        name: "Internet Explorer",
+        y: 56.33
+      },
+
+      {
+        name: " Chrome",
+        y: 24.03
+      },
+
+      {
+        name: " Firefox",
+        y: 10.38
+      },
+
+      {
+        name: " Safari",
+        y: 4.77
+      },
+
+      {
+        name: " Opera",
+        y: 0.91
+      },
+
+      {
+        name: " Unknown",
+        y: 0.2
+      },
+
+    ]
+    },
+
+  ]
+});
+          });
+        </script>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-15 18:15:40 BRT
+Last updated 2015-07-15 21:24:19 BRT
 </div>
 </div>
 </body>

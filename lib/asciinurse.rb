@@ -56,7 +56,7 @@ module Asciinurse
     basedir = document.attributes['docdir']
     tmpdir = "#{basedir}/tmp"
     FileUtils.mkpath tmpdir unless File.exist? tmpdir
-    TEMP_DIRS << tmpdir
+    TEMP_DIRS << tmpdir if document.attributes['backend'] == 'pdf'
     tmpdir
   end
 

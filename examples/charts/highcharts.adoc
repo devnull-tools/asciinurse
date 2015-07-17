@@ -57,30 +57,27 @@ chart::indicators.csv[type=line]
 
 [source,adoc]
 ----
+.Inline Chart
 [chart,pie]
 ....
-$ID, Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
-Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+Browser, Brands
+Internet Explorer, 56.33
+Chrome, 24.03
+Firefox, 10.38
+Safari, 4.77
+Opera, 0.91
+Unknown, 0.2
 ....
 ----
 
+.Inline Chart
 [chart,pie]
 ....
-$ID, Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
-Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
-....
-
-[source,adoc]
-----
-[chart,pie]
-....
-Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
-56.33, 24.03, 10.38, 4.77, 0.91, 0.2
-....
-----
-
-[chart,pie]
-....
-Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
-56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+Browser, Brands
+Internet Explorer, 56.33
+Chrome, 24.03
+Firefox, 10.38
+Safari, 4.77
+Opera, 0.91
+Unknown, 0.2
 ....

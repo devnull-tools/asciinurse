@@ -6,10 +6,12 @@
     type: 'pie'
   },
   title: {
+    <% if @title %>
     text: <%= @title.to_json %>
+    <% end %>
   },
   tooltip: {
-    pointFormat: '<%= @has_id ? '{series.name}: ' : '' %><b>{point.percentage:.1f}%</b>'
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
   },
   plotOptions: {
     pie: {

@@ -780,7 +780,7 @@ Highcharts.setOptions({
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-adoc" data-lang="adoc">chart::browsers.json[]</code></pre>
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">chart::browsers-highcharts.json[]</code></pre>
 </div>
 </div>
 <div id='chart_1'></div>
@@ -874,7 +874,9 @@ chart::browsers.csv[type=pie]</code></pre>
     type: 'pie'
   },
   title: {
+
     text: "Browser market shares January, 2015 to May, 2015"
+
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -895,37 +897,37 @@ chart::browsers.csv[type=pie]</code></pre>
   series: [
 
     {
-    name: "Brands",
+    name: " Brands",
     colorByPoint: true,
     data: [
 
       {
-        name: " Internet Explorer",
+        name: "Internet Explorer",
         y: 56.33
       },
 
       {
-        name: " Chrome",
+        name: "Chrome",
         y: 24.03
       },
 
       {
-        name: " Firefox",
+        name: "Firefox",
         y: 10.38
       },
 
       {
-        name: " Safari",
+        name: "Safari",
         y: 4.77
       },
 
       {
-        name: " Opera",
+        name: "Opera",
         y: 0.91
       },
 
       {
-        name: " Unknown",
+        name: "Unknown",
         y: 0.2
       },
 
@@ -956,16 +958,16 @@ chart::indicators.csv[type=bar]</code></pre>
     text: "Bar Chart"
   },
   xAxis: {
-    categories: [" Jan"," Feb"," Mar"," Apr"," May"," Jun"," Jul"," Aug"," Sep"," Oct"," Nov"," Dec"]
+    categories: ["Jan   ","Feb   ","Mar   ","Apr   ","May   ","Jun   ","Jul   ","Aug   ","Sep   ","Oct   ","Nov   ","Dec   "]
   },
-  series: [{"name":"Total","data":[29.9,71.5,106.4,129.2,144.0,176.0,135.6,148.5,216.4,194.1,95.6,54.4]}]
+  series: [{"name":"  Total","data":[29.9,71.5,106.4,129.2,144.0,176.0,135.6,148.5,216.4,194.1,95.6,54.4]}]
 }
 );
   });
 </script>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-adoc" data-lang="adoc">.Bar Chart
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">.Column Chart
 chart::indicators.csv[type=column]</code></pre>
 </div>
 </div>
@@ -983,16 +985,16 @@ chart::indicators.csv[type=column]</code></pre>
     text: "Column Chart"
   },
   xAxis: {
-    categories: [" Jan"," Feb"," Mar"," Apr"," May"," Jun"," Jul"," Aug"," Sep"," Oct"," Nov"," Dec"]
+    categories: ["Jan   ","Feb   ","Mar   ","Apr   ","May   ","Jun   ","Jul   ","Aug   ","Sep   ","Oct   ","Nov   ","Dec   "]
   },
-  series: [{"name":"Total","data":[29.9,71.5,106.4,129.2,144.0,176.0,135.6,148.5,216.4,194.1,95.6,54.4]}]
+  series: [{"name":"  Total","data":[29.9,71.5,106.4,129.2,144.0,176.0,135.6,148.5,216.4,194.1,95.6,54.4]}]
 }
 );
   });
 </script>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-adoc" data-lang="adoc">.Bar Chart
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">.Line Chart
 chart::indicators.csv[type=line]</code></pre>
 </div>
 </div>
@@ -1010,9 +1012,9 @@ chart::indicators.csv[type=line]</code></pre>
     text: "Line Chart"
   },
   xAxis: {
-    categories: [" Jan"," Feb"," Mar"," Apr"," May"," Jun"," Jul"," Aug"," Sep"," Oct"," Nov"," Dec"]
+    categories: ["Jan   ","Feb   ","Mar   ","Apr   ","May   ","Jun   ","Jul   ","Aug   ","Sep   ","Oct   ","Nov   ","Dec   "]
   },
-  series: [{"name":"Total","data":[29.9,71.5,106.4,129.2,144.0,176.0,135.6,148.5,216.4,194.1,95.6,54.4]}]
+  series: [{"name":"  Total","data":[29.9,71.5,106.4,129.2,144.0,176.0,135.6,148.5,216.4,194.1,95.6,54.4]}]
 }
 );
   });
@@ -1024,10 +1026,16 @@ chart::indicators.csv[type=line]</code></pre>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-adoc" data-lang="adoc">[chart,pie]
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">.Inline Chart
+[chart,pie]
 ....
-$ID, Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
-Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
+Browser, Brands
+Internet Explorer, 56.33
+Chrome, 24.03
+Firefox, 10.38
+Safari, 4.77
+Opera, 0.91
+Unknown, 0.2
 ....</code></pre>
 </div>
 </div>
@@ -1042,7 +1050,9 @@ Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
     type: 'pie'
   },
   title: {
-    text: null
+
+    text: "Inline Chart"
+
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -1063,37 +1073,37 @@ Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
   series: [
 
     {
-    name: "Brands",
+    name: " Brands",
     colorByPoint: true,
     data: [
 
       {
-        name: " Internet Explorer",
+        name: "Internet Explorer",
         y: 56.33
       },
 
       {
-        name: " Chrome",
+        name: "Chrome",
         y: 24.03
       },
 
       {
-        name: " Firefox",
+        name: "Firefox",
         y: 10.38
       },
 
       {
-        name: " Safari",
+        name: "Safari",
         y: 4.77
       },
 
       {
-        name: " Opera",
+        name: "Opera",
         y: 0.91
       },
 
       {
-        name: " Unknown",
+        name: "Unknown",
         y: 0.2
       },
 
@@ -1104,15 +1114,6 @@ Brands, 56.33, 24.03, 10.38, 4.77, 0.91, 0.2
 });
   });
 </script>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-adoc" data-lang="adoc">[chart,pie]
-....
-Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
-56.33, 24.03, 10.38, 4.77, 0.91, 0.2
-....</code></pre>
-</div>
-</div>
 <div id='chart_7'></div>
 <script type="text/javascript">
   $(function () {
@@ -1124,10 +1125,12 @@ Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
     type: 'pie'
   },
   title: {
-    text: null
+
+    text: "Chamados por Produto"
+
   },
   tooltip: {
-    pointFormat: '<b>{point.percentage:.1f}%</b>'
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
   },
   plotOptions: {
     pie: {
@@ -1145,38 +1148,48 @@ Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
   series: [
 
     {
-    name: null,
+    name: "Total",
     colorByPoint: true,
     data: [
 
       {
-        name: "Internet Explorer",
-        y: 56.33
+        name: "Red Hat Enterprise Linux",
+        y: 23
       },
 
       {
-        name: " Chrome",
-        y: 24.03
+        name: "Red Hat JBoss Enterprise Application Platform",
+        y: 16
       },
 
       {
-        name: " Firefox",
-        y: 10.38
+        name: "Red Hat JBoss Data Virtualization",
+        y: 6
       },
 
       {
-        name: " Safari",
-        y: 4.77
+        name: "Red Hat JBoss Operations Network",
+        y: 6
       },
 
       {
-        name: " Opera",
-        y: 0.91
+        name: "Red Hat Online Learning",
+        y: 2
       },
 
       {
-        name: " Unknown",
-        y: 0.2
+        name: "Red Hat Directory Server",
+        y: 2
+      },
+
+      {
+        name: "Red Hat Enterprise Linux Atomic Host",
+        y: 1
+      },
+
+      {
+        name: "Red Hat Satellite or Proxy",
+        y: 1
       },
 
     ]
@@ -1191,7 +1204,7 @@ Internet Explorer, Chrome, Firefox, Safari, Opera, Unknown
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-17 18:31:16 BRT
+Last updated 2015-07-17 19:55:17 BRT
 </div>
 </div>
 </body>

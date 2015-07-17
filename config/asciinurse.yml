@@ -9,3 +9,8 @@ charts:
     convert:
       js: highcharts-convert.js
       command: phantomjs %s -infile %s -outfile %s -scale 2.5
+
+  googlecharts:
+    include:
+      - https://www.google.com/jsapi
+      - global.js

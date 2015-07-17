@@ -10,9 +10,9 @@ module Asciinurse
         @engine = engine
         @title = attrs['title']
         @type = attrs['type']
+        @width = attrs['width']
+        @height = attrs['height']
         @csv = CSV.parse(csv_content, :converters => :all)
-        @has_id = @csv.first.first == '$ID'
-        @header = @has_id ? @csv.first[1..-1] : @csv.first
         parse_data
       end
 
@@ -29,17 +29,22 @@ module Asciinurse
       end
 
       def parse_data
-        @series = @csv[1..-1].collect do |row|
-          if @has_id
-            {
-                name: row.first,
-                data: row[1..-1]
-            }
-          else
-            {
-                data: row
-            }
+        @target = @csv[0][0]
+        @elements = @csv.size - 1
+        @series = []
+        @header = []
+        @elements.times do |n|
+          @header << @csv[n + 1].first
+        end
+        (@csv[0].size - 1).times do |n|
+          row = {
+              name: @csv[0][n + 1],
+              data: []
+          }
+          @elements.times do |el|
+            row[:data] << @csv[el + 1][n + 1]
           end
+          @series << row
         end
       end
 

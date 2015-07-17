@@ -37,8 +37,12 @@ module Asciinurse
 
   CONFIG = {}
 
-  def self.config(key)
-    CONFIG[key.to_s]
+  def self.config(*keys)
+    result = CONFIG
+    keys.each do |obj|
+      result = result[obj.to_s]
+    end
+    result
   end
 
   # reverse order so custom config can take precedence over built-in config

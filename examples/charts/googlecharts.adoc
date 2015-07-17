@@ -1,0 +1,83 @@
+= Asciinurse Charts Examples (Google Charts Engine)
+:charts: googlecharts
+
+[NOTE]
+====
+Modify this examples and convert this file using `ruby convert.rb`
+====
+
+== JSON Config File
+
+[source,adoc]
+----
+chart::browsers-googlecharts.json[]
+----
+
+chart::browsers-googlecharts.json[]
+
+== CSV Files
+
+[source,adoc]
+----
+.Browser market shares January, 2015 to May, 2015
+chart::browsers.csv[type=pie]
+----
+
+.Browser market shares January, 2015 to May, 2015
+chart::browsers.csv[type=pie]
+
+[source,adoc]
+----
+.Bar Chart
+chart::indicators.csv[type=bar]
+----
+
+.Bar Chart
+chart::indicators.csv[type=bar]
+
+[source,adoc]
+----
+.Column Chart
+chart::indicators.csv[type=column]
+----
+
+.Column Chart
+chart::indicators.csv[type=column]
+
+[source,adoc]
+----
+.Line Chart
+chart::indicators.csv[type=line]
+----
+
+.Line Chart
+chart::indicators.csv[type=line]
+
+== CSV Inline
+
+[source,adoc]
+----
+.Inline Chart
+[chart,pie]
+....
+Browser, Brands
+Internet Explorer, 56.33
+Chrome, 24.03
+Firefox, 10.38
+Safari, 4.77
+Opera, 0.91
+Unknown, 0.2
+....
+----
+
+.Inline Chart
+[chart,pie]
+....
+Browser, Brands
+Internet Explorer, 56.33
+Chrome, 24.03
+Firefox, 10.38
+Safari, 4.77
+Opera, 0.91
+Unknown, 0.2
+....

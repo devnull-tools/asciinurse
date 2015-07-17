@@ -104,9 +104,13 @@ module Asciinurse
         scripts = Asciinurse.config "charts.#{engine}.include"
         if doc.attributes['backend'] == 'html5'
           (scripts.collect do |script|
-            %(<script type="text/javascript">
+            if script.start_with? 'http'
+              "<script type='text/javascript' src='#{script}'></script>"
+            else
+              %(<script type="text/javascript">
                 #{Asciinurse.read_resource "#{engine}/javascripts/#{script}"}
               </script>)
+            end
           end).join $/
         end
       end

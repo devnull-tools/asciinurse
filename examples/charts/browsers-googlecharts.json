@@ -1,0 +1,21 @@
+{
+  type: google.visualization.PieChart,
+  data: google.visualization.arrayToDataTable([
+      ["Browser"," Brands"],
+      ["Internet Explorer",56.33],
+      ["Chrome",24.03],
+      ["Firefox",10.38],
+      ["Safari",4.77],
+      ["Opera",0.91],
+      ["Unknown",0.2]
+    ]),
+  options: {
+    chart: {
+      title: "Inline Chart"
+    }
+  },
+  style: {
+    width: "100%",
+    height: "600px"
+  }
+}

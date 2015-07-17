@@ -1,0 +1,22 @@
+{
+  type: google.charts.Bar,
+  data: google.visualization.arrayToDataTable(<%= @csv.to_json %>),
+  options: {
+    chart: {
+      title: <%= @title.to_json %>
+    },
+    hAxis: {
+      title: <%= @header.first.to_json %>,
+      minValue: 0
+    },
+    vAxis: {
+      title: <%= @header.last.to_json %> ,
+      minValue: 0
+    },
+    bars: 'vertical'
+  },
+  style: {
+    width: <%= @width.to_json %>,
+    height: <%= @height.to_json %>
+  }
+}

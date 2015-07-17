@@ -7,11 +7,14 @@ module Asciinurse
 
     class CSVData
       def initialize(engine, attrs, csv_content)
+        defaults = Asciinurse.config "charts.#{engine}.defaults"
+        options = defaults.merge attrs if defaults
+        options ||= attrs
         @engine = engine
-        @title = attrs['title']
-        @type = attrs['type']
-        @width = attrs['width']
-        @height = attrs['height']
+        @title = options['title']
+        @type = options['type']
+        @width = options['width']
+        @height = options['height']
         @csv = CSV.parse(csv_content, :converters => :all)
         parse_data
       end
@@ -25,6 +28,7 @@ module Asciinurse
       def get_template(default = 'generic.json.erb')
         template = Asciinurse.find_resource "#{@engine}/templates/charts/#{@type}.json.erb"
         template ||= Asciinurse.find_resource "#{@engine}/templates/charts/#{default}"
+        raise "Template not found for #{@engine}:#{@type}" unless template
         IO.read template
       end
 

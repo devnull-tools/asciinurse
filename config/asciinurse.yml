@@ -1,10 +1,11 @@
-charts: highcharts
+charts:
+  default: highcharts
 
-highcharts:
-  include:
-    - jquery.min.js
-    - highcharts.min.js
-    - global.js
-  convert:
-    js: highcharts-convert.js
-    command: phantomjs %s -infile %s -outfile %s -scale 2.5
+  highcharts:
+    include:
+      - jquery.min.js
+      - highcharts.min.js
+      - global.js
+    convert:
+      js: highcharts-convert.js
+      command: phantomjs %s -infile %s -outfile %s -scale 2.5

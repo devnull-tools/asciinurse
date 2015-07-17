@@ -18,35 +18,35 @@ module Asciinurse
     RESOURCE_PRECEDENCE.insert 1, path
   end
 
-  def self.find(*path)
+  def self.find(path)
     result = []
     RESOURCE_PRECEDENCE.each do |basedir|
-      file = "#{basedir}/#{path.join('/')}"
+      file = "#{basedir}/#{path}"
       result << file if File.exist? file
     end
     result
   end
 
-  def self.find_resource(*path)
-    find(:resources, *path).first
+  def self.find_resource(path)
+    find("resources/#{path}").first
   end
 
-  def self.read_resource(*path)
-    IO.read find_resource(*path)
+  def self.read_resource(path)
+    IO.read find_resource(path)
   end
 
   CONFIG = {}
 
-  def self.config(*keys)
+  def self.config(key)
     result = CONFIG
-    keys.each do |obj|
-      result = result[obj.to_s]
+    key.to_s.split('.').each do |obj|
+      result = result[obj]
     end
     result
   end
 
   # reverse order so custom config can take precedence over built-in config
-  find(:config, 'asciinurse.yml').reverse_each do |file|
+  find('config/asciinurse.yml').reverse_each do |file|
     CONFIG.merge! YAML::load_file(file)
   end
 

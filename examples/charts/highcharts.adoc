@@ -1,18 +1,19 @@
-= Asciinurse Charts Examples
+= Asciinurse Charts Examples (Highcharts Engine)
+:charts: highcharts
 
 [NOTE]
 ====
-Modify this examples and convert this file using `ruby convert.rb charts.adoc`
+Modify this examples and convert this file using `ruby convert.rb`
 ====
 
 == JSON Config File
 
 [source,adoc]
 ----
-chart::browsers.json[]
+chart::browsers-highcharts.json[]
 ----
 
-chart::browsers.json[]
+chart::browsers-highcharts.json[]
 
 == CSV Files
 
@@ -36,7 +37,7 @@ chart::indicators.csv[type=bar]
 
 [source,adoc]
 ----
-.Bar Chart
+.Column Chart
 chart::indicators.csv[type=column]
 ----
 
@@ -45,7 +46,7 @@ chart::indicators.csv[type=column]
 
 [source,adoc]
 ----
-.Bar Chart
+.Line Chart
 chart::indicators.csv[type=line]
 ----
 

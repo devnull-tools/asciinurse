@@ -23,8 +23,8 @@ module Asciinurse
       private
 
       def get_template(default = 'generic.json.erb')
-        template = Asciinurse.find_resource @engine, :templates, "#{@type}.json.erb"
-        template ||= Asciinurse.find_resource @engine, :templates, default
+        template = Asciinurse.find_resource "#{@engine}/templates/charts/#{@type}.json.erb"
+        template ||= Asciinurse.find_resource "#{@engine}/templates/charts/#{default}"
         IO.read template
       end
 

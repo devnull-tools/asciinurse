@@ -7,7 +7,7 @@ module Asciinurse
     module ChartCreator
 
       def get_engine(doc)
-        doc.attributes['charts'] || Asciinurse.config(:charts)
+        doc.attributes['charts'] || Asciinurse.config('charts.default')
       end
 
       def create_chart(parent, attrs, config)
@@ -29,7 +29,7 @@ module Asciinurse
       def create_from_json(document, config)
         id = 'chart_%s' % (document.attributes['last-id'] += 1)
         engine = get_engine document
-        template = Asciinurse.read_resource engine, :templates, 'chart.html.erb'
+        template = Asciinurse.read_resource "#{engine}/templates/chart.html.erb"
         ERB.new(template).result binding
       end
 
@@ -40,8 +40,7 @@ module Asciinurse
 
       def create_image(document, config, attrs)
         engine = get_engine document
-        converter_file = Asciinurse.config engine, :convert, :js
-        converter = Asciinurse.find_resource engine, :phantomjs, converter_file
+        converter_file = Asciinurse.config "charts.#{engine}.convert.js"
         tmpdir = Asciinurse.tmp_dir document
         id = (document.attributes['last-id'] += 1)
 
@@ -50,7 +49,9 @@ module Asciinurse
 
         IO.write config_file, config
 
-        command = (Asciinurse.config engine, :convert, :command) % [converter, config_file, image_file]
+        command = Asciinurse.config "charts.#{engine}.convert.command"
+        converter = Asciinurse.find_resource "#{engine}/#{command.split.first}/#{converter_file}"
+        command = command % [converter, config_file, image_file]
 
         `#{command}`
         image_file
@@ -100,14 +101,12 @@ module Asciinurse
       def process(doc)
         engine = get_engine(doc)
         doc.attributes['charts'] = engine
-        scripts = Asciinurse.config engine, 'include'
+        scripts = Asciinurse.config "charts.#{engine}.include"
         if doc.attributes['backend'] == 'html5'
           (scripts.collect do |script|
-            %(
-              <script type="text/javascript">
-                #{Asciinurse.read_resource engine, :javascripts, script}
-              </script>
-            )
+            %(<script type="text/javascript">
+                #{Asciinurse.read_resource "#{engine}/javascripts/#{script}"}
+              </script>)
           end).join $/
         end
       end

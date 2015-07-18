@@ -21,8 +21,7 @@ module Asciinurse
   def self.find(path)
     result = []
     RESOURCE_PRECEDENCE.each do |basedir|
-      file = "#{basedir}/#{path}"
-      result << file if File.exist? file
+      result += Dir["#{basedir}/#{path}"]
     end
     result
   end
@@ -69,6 +68,7 @@ module Asciinurse
 end
 
 require_relative 'asciinurse/extensions/charts/extension'
+require_relative 'asciinurse/extensions/i18n/extension'
 
 if File.exist? ENV['ASCIINURSE_USER_DIR']
   custom_script = '%s/asciinurse.rb' % ENV['ASCIINURSE_USER_DIR']

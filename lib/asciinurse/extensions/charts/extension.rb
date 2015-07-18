@@ -100,7 +100,6 @@ module Asciinurse
 
       def process(doc)
         engine = get_engine(doc)
-        doc.attributes['charts'] = engine
         scripts = Asciinurse.config "charts.#{engine}.include"
         if doc.attributes['backend'] == 'html5'
           (scripts.collect do |script|

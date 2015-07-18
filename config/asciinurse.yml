@@ -7,14 +7,16 @@ charts:
       - highcharts.min.js
       - global.js
     convert:
-      js: highcharts-convert.js
+      file: highcharts-convert.js
       command: phantomjs %s -infile %s -outfile %s -scale 2.5
 
   googlecharts:
     defaults:
       width: 100%
       height: 600px
-
     include:
       - https://www.google.com/jsapi
       - global.js
+    convert:
+      file: googlecharts-convert.js
+      command: phantomjs --ignore-ssl-errors=true %s %s %s

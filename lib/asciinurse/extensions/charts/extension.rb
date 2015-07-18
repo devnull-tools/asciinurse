@@ -40,7 +40,7 @@ module Asciinurse
 
       def create_image(document, config, attrs)
         engine = get_engine document
-        converter_file = Asciinurse.config "charts.#{engine}.convert.js"
+        converter_file = Asciinurse.config "charts.#{engine}.convert.file"
         tmpdir = Asciinurse.tmp_dir document
         id = (document.attributes['last-id'] += 1)
 
@@ -49,9 +49,9 @@ module Asciinurse
 
         IO.write config_file, config
 
-        command = Asciinurse.config "charts.#{engine}.convert.command"
-        converter = Asciinurse.find_resource "#{engine}/#{command.split.first}/#{converter_file}"
-        command = command % [converter, config_file, image_file]
+        converter = Asciinurse.find_resource "#{engine}/converter/#{converter_file}"
+        command = Asciinurse.config("charts.#{engine}.convert.command") %
+            [converter, config_file, image_file]
 
         `#{command}`
         image_file

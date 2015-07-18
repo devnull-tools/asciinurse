@@ -1,0 +1,14 @@
+{
+  type: google.visualization.PieChart,
+  data: google.visualization.arrayToDataTable(<%= @csv.to_json %>),
+  options: {
+    chart: {
+      title: <%= @title.to_json %>
+    },
+    pieHole: 0.4
+  },
+  style: {
+    width: <%= @width.to_json %>,
+    height: <%= @height.to_json %>
+  }
+}

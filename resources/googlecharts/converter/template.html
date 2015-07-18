@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1.1", {packages: ["corechart", "bar", "line"]});
+        var drawChart = function (id, config) {
+            var div = document.getElementById(id)
+            div.style.width = config['style']['width']
+            div.style.height = config['style']['height']
+            var chart = new config['type'](div);
+            chart.draw(config['data'], config['options']);
+        }
+    </script>
+</head>
+<body>
+<div id="chart"></div>
+<script type="text/javascript">
+    google.setOnLoadCallback(function () {
+        drawChart('chart', ${CONFIG})
+    })
+</script>
+</body>
+</html>

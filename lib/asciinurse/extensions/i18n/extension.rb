@@ -10,11 +10,13 @@ module Asciinurse
 
       def process(document)
         locale = document.attributes['locale']
-        I18n.load_path = Asciinurse.find 'i18n/*.yml'
-        I18n.backend.load_translations
-        I18n.locale = locale
-        I18n.t('document').each do |key, translation|
-          document.attributes[key.to_s] = translation
+        if locale
+          I18n.load_path = Asciinurse.find 'i18n/*.yml'
+          I18n.backend.load_translations
+          I18n.locale = locale
+          I18n.t('document').each do |key, translation|
+            document.attributes[key.to_s] = translation
+          end
         end
         nil
       end
@@ -34,6 +36,7 @@ module Asciinurse
         I18n.t('document').each do |key, translation|
           document.attributes[key.to_s] = translation
         end
+        document.save_attributes
         nil
       end
 

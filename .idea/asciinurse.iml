@@ -13,6 +13,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.8.4, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="css_parser (v1.3.6, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashery (v2.1.1, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.7.0, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pdf-core (v0.2.5, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pdf-reader (v1.3.3, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.5, RVM: ruby-2.2-head) [gem]" level="application" />
@@ -27,5 +28,9 @@
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.4, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.5.3, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ttfunk (v1.2.2, RVM: ruby-2.2-head) [gem]" level="application" />
+  </component>
+  <component name="RModuleSettingsStorage">
+    <LOAD_PATH number="0" />
+    <I18N_FOLDERS number="1" string0="$MODULE_DIR$/i18n" />
   </component>
 </module>

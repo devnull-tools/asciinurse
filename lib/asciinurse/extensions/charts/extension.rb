@@ -12,7 +12,6 @@ module Asciinurse
 
       def create_chart(parent, attrs, config)
         document = parent.document
-        document.attributes['last-id'] ||= 0
         backend = document.attributes['backend']
         if backend == 'html5'
           html = create_from_json document, config
@@ -27,7 +26,7 @@ module Asciinurse
       end
 
       def create_from_json(document, config)
-        id = 'chart_%s' % (document.attributes['last-id'] += 1)
+        id = 'chart_%s' % document.counter(:chart_id)
         engine = get_engine document
         template = Asciinurse.read_resource "#{engine}/templates/chart.html.erb"
         ERB.new(template).result binding
@@ -42,7 +41,7 @@ module Asciinurse
         engine = get_engine document
         converter_file = Asciinurse.config "charts.#{engine}.convert.file"
         tmpdir = Asciinurse.tmp_dir document
-        id = (document.attributes['last-id'] += 1)
+        id = document.counter(:chart_id)
 
         config_file = "#{tmpdir}/config-#{id}.json"
         image_file = "#{tmpdir}/chart-#{id}.png"

@@ -1,0 +1,127 @@
+# Asciinurse
+
+Asciinurse is a set of useful extensions to make http://asciidoctor.org[Asciidoctor] even better!
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+[source,ruby]
+----
+gem 'asciinurse'
+----
+
+And then execute:
+
+----
+$ bundle
+----
+
+Or install it yourself as:
+
+----
+$ gem install asciinurse
+----
+
+## Configuration
+
+Asciinurse uses, by default, a `$HOME/.asciinurse` directory. To change this, just declare a `ASCIINURSE_USER_DIR`
+variable containing the directory of your choice.
+
+Anything can be overridden in Asciinurse just by placing the same file in your `ASCIINURSE_USER_DIR` (maintaining the
+tree, of course). This means that if you don't like our provided resource (such as the chart templates), you can just
+drop your version of it and Asciinurse will use that. You can also override any config key by using the
+`$ASIINURSE_USER_DIR/asciinurse.yml` file.
+
+## Charts
+
+This extension enables the use of charts in documents. With an html5 backend, Asciinurse will generate a chart using
+HTML and Javascript (using the *canvas* tag). The supported engines are:
+
+- http://highcharts.com[Highcharts] (default)
+- https://developers.google.com/chart/[Google Charts]
+
+[IMPORTANT]
+====
+Highcharts is the default engine because Google Charts does not allow offline use. Make sure you have the rights to use
+it or switch to Google Charts.
+====
+
+### Usage
+
+It's pretty straightforward to use charts. Just declare the engine you want to use (or leave it to use the default):
+
+[source,adoc]
+----
+:charts: highcharts
+----
+
+To insert a chart, you have three ways:
+
+* Point to a json to configure the chart (maximum flexibility)
+* Point to a csv file that contains the data
+* Insert the data as a csv file inline
+
+#### Using a JSON file
+
+If you use Highcharts, you can put the json file as if in a web page. For Google Charts, you need to pass a JSON
+containing the following attributes:
+
+type:: The object that will draw the chart (like `google.visualization.PieChart`)
+data:: The datatable that holds the data (you can wrap a multidimensional array using the function
+`google.visualization.arrayToDataTable` as well)
+options:: The chart options to pass (as if using in a web page)
+style:: The chart dimensions (_width_ and _height_)
+
+[source,adoc]
+----
+chart::mychart.json[]
+----
+
+#### Using a CSV file
+
+You can drop a CSV file and make a reference to it:
+
+[source,adoc]
+----
+chart::mychart-data.csv[type=pie]
+----
+
+[IMPORTANT]
+====
+Remember to use a CSV with a header and pass the chart type.
+====
+
+#### Inline a CSV
+
+[source,adoc]
+----
+.Inline Chart
+[chart,pie]
+....
+CSV DATA HERE
+....
+----
+
+[IMPORTANT]
+====
+Remember to use a CSV with a header and pass the chart type.
+====
+sa
+### Chart Images
+
+To put charts on a PDF file, we need to produce a temporary image from the HTML5 chart. Asciinurse's default
+implementation uses http://phantomjs.org[PhantomJS] and requires an accessible `phantomjs` executable in your `PATH`.
+
+[IMPORTANT]
+====
+Remember that you will need an Internet connection for generating images from Google Chart.
+====
+
+## Contributing
+
+1. Fork it ( https://github.com/[my-github-username]/asciinurse/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request

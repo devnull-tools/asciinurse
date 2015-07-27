@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['ataxexe@devnull.tools']
 
   spec.summary       = "The best Asciidoctor's assistant"
-  spec.homepage      = 'http://devnull.tools  '
+  spec.homepage      = 'https://github.com/devnull-tools/asciinurse'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

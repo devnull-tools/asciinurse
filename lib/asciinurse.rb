@@ -68,7 +68,6 @@ module Asciinurse
 end
 
 require_relative 'asciinurse/extensions/charts/extension'
-require_relative 'asciinurse/extensions/i18n/extension'
 
 if File.exist? ENV['ASCIINURSE_USER_DIR']
   custom_script = '%s/asciinurse.rb' % ENV['ASCIINURSE_USER_DIR']

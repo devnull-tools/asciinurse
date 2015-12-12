@@ -18,8 +18,9 @@ module Asciinurse
           create_pass_block parent, html, attrs, subs: nil
         else
           attrs['target'] = create_image document, config, attrs
-          attrs['width'] ||= 480
-          attrs['height'] ||= 250
+          attrs['width'] ||= 800
+          attrs['height'] ||= 600
+          attrs['align'] ||= 'center'
 
           create_image_block parent, attrs
         end

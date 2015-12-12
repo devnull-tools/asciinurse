@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RUBY_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="gem" name="Gem">
+      <configuration>
+        <option name="GEM_APP_ROOT_PATH" value="" />
+        <option name="GEM_APP_TEST_PATH" value="" />
+        <option name="GEM_APP_LIB_PATH" value="" />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
@@ -9,24 +18,24 @@
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.3.8, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="afm (v0.2.2, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="asciidoctor (v1.5.2, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="asciidoctor-pdf (v1.5.0.alpha.7, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.8.4, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="css_parser (v1.3.6, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="asciidoctor-pdf (v1.5.0.alpha.9, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.10.6, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="css_parser (v1.3.7, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashery (v2.1.1, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pdf-core (v0.2.5, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pdf-core (v0.6.0, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pdf-reader (v1.3.3, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.5, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="prawn (v1.2.1, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="prawn (v2.0.2, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prawn-icon (v0.6.4, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="prawn-svg (v0.18.0, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="prawn-table (v0.1.1, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="prawn-svg (v0.21.0, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="prawn-table (v0.2.2, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prawn-templates (v0.0.3, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.4.2, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-rc4 (v0.1.5, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="safe_yaml (v1.0.4, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.4, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.5, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.5.3, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ttfunk (v1.2.2, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ttfunk (v1.4.0, RVM: ruby-2.2-head) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

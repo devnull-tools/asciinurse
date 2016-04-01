@@ -6,9 +6,7 @@
     type: 'pie'
   },
   title: {
-    <% if @title %>
     text: <%= @title.to_json %>
-    <% end %>
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

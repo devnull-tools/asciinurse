@@ -11,7 +11,7 @@ module Asciinurse
         options = defaults.merge attrs if defaults
         options ||= attrs
         @engine = engine
-        @title = options['title']
+        @title = (options['title'] or '')
         @type = options['type']
         @width = options['width']
         @height = options['height']

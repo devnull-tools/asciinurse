@@ -1,5 +1,5 @@
 {
-  type: google.visualization.PieChart,
+  type: 'google.visualization.PieChart',
   data: google.visualization.arrayToDataTable([
       ["Browser"," Brands"],
       ["Internet Explorer",56.33],
@@ -10,9 +10,7 @@
       ["Unknown",0.2]
     ]),
   options: {
-    chart: {
-      title: "Inline Chart"
-    }
+    title: "Chart configured with JSON file"
   },
   style: {
     width: "100%",

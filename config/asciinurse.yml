@@ -15,7 +15,7 @@ charts:
       width: 100%
       height: 600px
     include:
-      - https://www.google.com/jsapi
+      - https://www.gstatic.com/charts/loader.js
       - global.js
     convert:
       file: googlecharts-convert.js

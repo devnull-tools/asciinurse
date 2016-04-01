@@ -1,10 +1,8 @@
 {
-  type: google.charts.Line,
+  type: 'google.charts.Line',
   data: google.visualization.arrayToDataTable(<%= @csv.to_json %>),
   options: {
-    chart: {
-      title: <%= @title.to_json %>
-    }
+    title: <%= @title.to_json %>
   },
   style: {
     width: <%= @width.to_json %>,

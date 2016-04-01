@@ -1,9 +1,10 @@
 {
-  type: google.visualization.PieChart,
+  type: 'google.visualization.PieChart',
   data: google.visualization.arrayToDataTable(<%= @csv.to_json %>),
   options: {
-    chart: {
-      title: <%= @title.to_json %>
+    title: <%= @title.to_json %>,
+    legend: {
+      position: 'labeled'
     },
     pieHole: 0.4
   },

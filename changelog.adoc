@@ -1,5 +1,9 @@
 = CHANGELOG
 
+== Version 0.1.4
+
+- Fixes in google chart engine
+
 == Version 0.1.3
 
 - Use a blank title instead of the default one

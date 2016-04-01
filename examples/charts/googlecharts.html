@@ -408,17 +408,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
 <script type="text/javascript">
-                google.load("visualization", "1.1", {packages:["corechart", "bar", "line"]});
-var drawChart = function(id, config) {
+                google.charts.load("current", {packages: ["corechart", "bar", "line"]});
+var drawChart = function (id, config) {
     var div = document.getElementById(id)
     div.style.width = config['style']['width']
     div.style.height = config['style']['height']
-    var chart = new config['type'](div);
+    var chart = eval("new " + config['type'] + "(div)");
     chart.draw(config['data'], config['options']);
 }
-
               </script>
 </head>
 <body class="article">
@@ -454,9 +453,9 @@ var drawChart = function(id, config) {
 </div>
 <div id='chart_1'></div>
 <script type="text/javascript">
-  google.setOnLoadCallback(function () {
+  google.charts.setOnLoadCallback(function () {
     drawChart('chart_1', {
-  type: google.visualization.PieChart,
+  type: 'google.visualization.PieChart',
   data: google.visualization.arrayToDataTable([
       ["Browser"," Brands"],
       ["Internet Explorer",56.33],
@@ -467,9 +466,7 @@ var drawChart = function(id, config) {
       ["Unknown",0.2]
     ]),
   options: {
-    chart: {
-      title: "Inline Chart"
-    }
+    title: "Chart configured with JSON file"
   },
   style: {
     width: "100%",
@@ -491,13 +488,14 @@ chart::browsers.csv[type=pie]</code></pre>
 </div>
 <div id='chart_2'></div>
 <script type="text/javascript">
-  google.setOnLoadCallback(function () {
+  google.charts.setOnLoadCallback(function () {
     drawChart('chart_2', {
-  type: google.visualization.PieChart,
+  type: 'google.visualization.PieChart',
   data: google.visualization.arrayToDataTable([["Browser"," Brands"],["Internet Explorer",56.33],["Chrome",24.03],["Firefox",10.38],["Safari",4.77],["Opera",0.91],["Unknown",0.2]]),
   options: {
-    chart: {
-      title: "Browser market shares January, 2015 to May, 2015"
+    title: "Browser market shares January, 2015 to May, 2015",
+    legend: {
+      position: 'labeled'
     }
   },
   style: {
@@ -516,14 +514,12 @@ chart::indicators.csv[type=bar]</code></pre>
 </div>
 <div id='chart_3'></div>
 <script type="text/javascript">
-  google.setOnLoadCallback(function () {
+  google.charts.setOnLoadCallback(function () {
     drawChart('chart_3', {
-  type: google.charts.Bar,
+  type: 'google.charts.Bar',
   data: google.visualization.arrayToDataTable([["Month ","  Total"],["Jan   ",29.9],["Feb   ",71.5],["Mar   ",106.4],["Apr   ",129.2],["May   ",144.0],["Jun   ",176.0],["Jul   ",135.6],["Aug   ",148.5],["Sep   ",216.4],["Oct   ",194.1],["Nov   ",95.6],["Dec   ",54.4]]),
   options: {
-    chart: {
-      title: "Bar Chart"
-    },
+    title: "Bar Chart",
     hAxis: {
       title: "Jan   ",
       minValue: 0
@@ -550,14 +546,12 @@ chart::indicators.csv[type=column]</code></pre>
 </div>
 <div id='chart_4'></div>
 <script type="text/javascript">
-  google.setOnLoadCallback(function () {
+  google.charts.setOnLoadCallback(function () {
     drawChart('chart_4', {
-  type: google.charts.Bar,
+  type: 'google.charts.Bar',
   data: google.visualization.arrayToDataTable([["Month ","  Total"],["Jan   ",29.9],["Feb   ",71.5],["Mar   ",106.4],["Apr   ",129.2],["May   ",144.0],["Jun   ",176.0],["Jul   ",135.6],["Aug   ",148.5],["Sep   ",216.4],["Oct   ",194.1],["Nov   ",95.6],["Dec   ",54.4]]),
   options: {
-    chart: {
-      title: "Column Chart"
-    },
+    title: "Column Chart",
     hAxis: {
       title: "Jan   ",
       minValue: 0
@@ -584,14 +578,12 @@ chart::indicators.csv[type=line]</code></pre>
 </div>
 <div id='chart_5'></div>
 <script type="text/javascript">
-  google.setOnLoadCallback(function () {
+  google.charts.setOnLoadCallback(function () {
     drawChart('chart_5', {
-  type: google.charts.Line,
+  type: 'google.charts.Line',
   data: google.visualization.arrayToDataTable([["Month ","  Total"],["Jan   ",29.9],["Feb   ",71.5],["Mar   ",106.4],["Apr   ",129.2],["May   ",144.0],["Jun   ",176.0],["Jul   ",135.6],["Aug   ",148.5],["Sep   ",216.4],["Oct   ",194.1],["Nov   ",95.6],["Dec   ",54.4]]),
   options: {
-    chart: {
-      title: "Line Chart"
-    }
+    title: "Line Chart"
   },
   style: {
     width: "100%",
@@ -623,13 +615,14 @@ Unknown, 0.2
 </div>
 <div id='chart_6'></div>
 <script type="text/javascript">
-  google.setOnLoadCallback(function () {
+  google.charts.setOnLoadCallback(function () {
     drawChart('chart_6', {
-  type: google.visualization.PieChart,
+  type: 'google.visualization.PieChart',
   data: google.visualization.arrayToDataTable([["Browser"," Brands"],["Internet Explorer",56.33],["Chrome",24.03],["Firefox",10.38],["Safari",4.77],["Opera",0.91],["Unknown",0.2]]),
   options: {
-    chart: {
-      title: "Inline Chart"
+    title: "Inline Chart",
+    legend: {
+      position: 'labeled'
     }
   },
   style: {

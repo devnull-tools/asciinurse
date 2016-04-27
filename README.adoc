@@ -107,7 +107,7 @@ CSV DATA HERE
 ====
 Remember to use a CSV with a header and pass the chart type.
 ====
-sa
+
 ### Chart Images
 
 To put charts on a PDF file, we need to produce a temporary image from the HTML5 chart. Asciinurse's default

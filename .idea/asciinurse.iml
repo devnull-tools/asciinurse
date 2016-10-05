@@ -2,11 +2,7 @@
 <module type="RUBY_MODULE" version="4">
   <component name="FacetManager">
     <facet type="gem" name="Gem">
-      <configuration>
-        <option name="GEM_APP_ROOT_PATH" value="" />
-        <option name="GEM_APP_TEST_PATH" value="" />
-        <option name="GEM_APP_LIB_PATH" value="" />
-      </configuration>
+      <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -17,7 +13,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Ascii85 (v1.0.2, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.4.0, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="afm (v0.2.2, RVM: ruby-2.2-head) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="asciidoctor (v1.5.2, RVM: ruby-2.2-head) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="asciidoctor (v1.5.4, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="asciidoctor-pdf (v1.5.0.alpha.10, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.10.6, RVM: ruby-2.2-head) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="css_parser (v1.3.7, RVM: ruby-2.2-head) [gem]" level="application" />

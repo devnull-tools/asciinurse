@@ -21,5 +21,5 @@ page.open(args[1] + '.html', function() {
     window.setTimeout(function () {
         page.render(args[2]);
         phantom.exit();
-    }, 1000);
+    }, 3000);
 });

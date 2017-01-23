@@ -4,7 +4,7 @@ var system = require('system');
 
 var args = system.args;
 
-var scriptDir = args[0].replace(/googlecharts-convert\.js$/,'')
+var scriptDir = args[0].replace(/googlecharts-convert\.js$/, '')
 var config = fs.read(args[1])
 var pageContent = fs.read(scriptDir + 'template.html')
 pageContent = pageContent.replace(/\$\{CONFIG}/g, config);
@@ -17,13 +17,15 @@ page.viewportSize = {
     height: 768
 };
 
-page.open(args[1] + '.html', function() {
+page.open(args[1] + '.html', function () {
     window.setTimeout(function () {
         phantom.exit();
-    }, 15000);
+    }, 30000);
 });
 
-page.onLoadFinished = function(status) {
-    page.render(args[2]);
-    phantom.exit();
-};
+page.onConsoleMessage = function (msg) {
+    if (msg === 'chart.ready') {
+        page.render(args[2]);
+        phantom.exit();
+    }
+}

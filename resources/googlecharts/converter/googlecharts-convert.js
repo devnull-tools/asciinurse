@@ -19,7 +19,11 @@ page.viewportSize = {
 
 page.open(args[1] + '.html', function() {
     window.setTimeout(function () {
-        page.render(args[2]);
         phantom.exit();
-    }, 3000);
+    }, 15000);
 });
+
+page.onLoadFinished = function(status) {
+    page.render(args[2]);
+    phantom.exit();
+};

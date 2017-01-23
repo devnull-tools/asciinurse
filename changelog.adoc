@@ -1,5 +1,9 @@
 = CHANGELOG
 
+== Version 0.1.6
+
+- Use of PhantomJS `#onLoadFinished` to better adjust png chart generation
+
 == Version 0.1.5
 
 - Adjusted timeout to save png charts
